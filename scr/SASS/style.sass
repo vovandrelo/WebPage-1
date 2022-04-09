@@ -1,0 +1,272 @@
+// Основные используемые на сайте цвета
+$colWhite: #ffffff
+$colYellow: #f9bf3b
+$colBlack: #252525
+$colGrey: #4a4a4a
+$colBlue: #299cbd
+
+// Миксина для горизонтальных жёлтых линий
+@mixin horizontalLine($marTop, $marBot)
+    content: ""
+    display: block
+    margin: $marTop auto $marBot auto
+    width: 217px
+    height: 4px
+    background-color: $colYellow
+
+// Миксина для любого текста
+@mixin text($sieze, $weight)
+    font-size: $sieze
+    line-height: $sieze
+    font-weight: $weight
+
+// Миксина для выравнивания картинок по центру
+%icons
+    display: block
+    margin: 0 auto
+
+// Шрифт ра странице - Roboto
+*
+    font-family: Roboto
+
+// Оформление всех кнопок
+button
+    border-radius: 10px
+    width: 321px
+    height: 80px
+    background-image: linear-gradient(0.0deg, #2798b9 0%, #3ab6da 100%)
+    border: 4px solid rgba(0,0,0,0.22)
+    box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.17)
+    @include text($sieze: 21px, $weight: 400)
+    color: $colWhite
+    text-transform: uppercase
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.21)
+    cursor: pointer
+
+// Контейнер
+.container
+    width: 1140px
+    margin: 0 auto
+
+// Секция 1
+.intro
+    min-height: 800px
+    padding: 39px 0 62px 0px
+    background: url('../img/bg/background-1.jpg') 0 0/cover no-repeat
+    text-align: center
+    .logo
+        &_img
+            @extend %icons
+            width: 83px
+            height: 71px
+        &_descr
+            @include text($sieze: 15px, $weight: 500)
+            text-align: center
+            text-transform: uppercase
+            color: $colWhite
+            margin-top: 14px
+    #main_title
+        margin-top: 53px
+    .title
+        @include text($sieze: 41px, $weight: 900)
+        text-transform: uppercase
+        color: $colYellow
+        margin-top: 30px
+    .title_secondary
+        @include text($sieze: 80px, $weight: 900)
+        text-transform: uppercase
+        color: $colWhite
+        margin-top: 21px
+        &::before, &::after
+            content: ""
+            display: inline-block
+            margin: 0 18px 27px 18px
+            width: 270px
+            height: 2px
+            background-color: $colWhite
+    .text
+        @include text($sieze: 21px, $weight: 300)
+        margin-top: 23px
+        line-height: 28px
+        color: $colWhite
+        span
+            @include text($sieze: 21px, $weight: 700)
+            color: $colYellow
+
+    .btnRegistry
+        margin-top: 69px
+    
+    .more
+        margin: 0 auto
+        &_text
+            @include text($sieze: 15px, $weight: 100)
+            margin-top: 69px
+            text-transform: uppercase
+            color: $colWhite
+        &_arrow
+            @extend %icons
+            margin-top: 13px
+            width: 30px
+            height: 19px
+
+// Секция 2
+.futureSkills
+    background-color: #efefef
+    min-height: 604px
+    padding: 85px 0 75px 0
+    .title
+        @include text($sieze: 30px, $weight: 400)
+        text-align: center
+        text-transform: uppercase
+        color: $colBlack
+        &::after
+            @include horizontalLine($marTop: 18px, $marBot: 18px)
+    .title_secondary
+        @include text($sieze: 23px, $weight: 400)
+        text-align: center
+        color: $colGrey
+    .items
+        margin: 0 auto
+        margin-top: 45px
+        display: flex
+        justify-content: space-between
+        .item
+            width: 342px
+            &_image
+                @extend %icons
+                height: 201px
+            &_text
+                @include text($sieze: 15px, $weight: 300)
+                line-height: 21px
+                min-height: 77px
+                text-align: justify
+                margin-top: 33px
+
+// Секция 3
+.optimization
+    position: relative
+    padding: 102px 0 107px 0
+    min-height: 550px
+    .content
+        position: relative
+        left: 380px
+        .title
+            @include text($sieze: 30px, $weight: 900)
+            color: $colBlue
+        .text
+            margin-top: 25px
+            @include text($sieze: 17px, $weight: 300)
+            color: $colGrey
+            line-height: 27px
+            &_parag
+                text-align: justify
+                margin-top: 15px
+            .strong
+                font-weight: 700
+        .image
+            display: block
+            position: absolute
+            top: -54px
+            left: -623px
+            z-index: -1
+
+// Секция 4
+.skills
+    padding: 86px 0 79px 0
+    min-height: 447px
+    background: url('../img/bg/background-2.jpg') 0 0/cover no-repeat
+    .title
+        @include text($sieze: 30px, $weight: 400)
+        text-align: center
+        text-transform: uppercase
+        color: $colWhite
+        &::after
+            @include horizontalLine($marTop: 23px, $marBot: 41px)
+    .items
+        display: flex
+        justify-content: space-between
+        margin-top: 25px
+        .item
+            width: 205px
+            &_circle
+                background-color: #b4e2ff 
+                margin: 0 auto
+                width: 115px
+                height: 115px
+                border-radius: 50%
+                display: flex
+                align-items: center
+                justify-content: center
+            &_descr
+                @include text($sieze: 17px, $weight: 300)
+                margin-top: 25px
+                color: $colWhite
+                text-align: center
+
+// Секция 5
+.registry
+    padding: 86px 0 83px 0
+    min-height: 628px
+    background-color: #efefef
+    text-align: center
+    .present
+        margin: 0 auto
+    .text
+        @include text($sieze: 30px, $weight: 400)
+        line-height: 43px
+        margin-top: 42px
+        color: $colBlack
+    .registryBtn
+        margin-top: 48px
+
+// Секция 6
+.noticeTime
+    padding: 89px 0 54px 0
+    min-height: 515px
+    text-align: center
+    .imageComp
+        @extend %icons
+        width: 342px
+    .textFirstCourse
+        @include text($sieze: 30px, $weight: 400)
+        margin-top: 37px
+        text-transform: uppercase
+        color: $colBlack
+    .title
+        @include text($sieze: 36px, $weight: 900)
+        margin-top: 30px
+        text-transform: uppercase
+        color: $colBlue
+    .textNumberSeats
+        @include text($sieze: 23px, $weight: 400)
+        margin-top: 25px
+        color: $colGrey
+
+// Секция 7
+footer
+    padding: 61px 0 69px 0
+    min-height: 166px
+    text-align: center
+    background-color: #1a1a1a
+    .text
+        margin: 0 auto
+        width: 376px
+        &_line_1
+            display: flex
+            justify-content: space-between
+            @include text($sieze: 15px, $weight: 300)
+            color: #888888
+            text-decoration-line: underline
+            #vertlLine::after
+                content: ""
+                display: inline-block
+                vertical-align: middle
+                margin-left: 10px
+                height: 13px
+                width: 1px
+                background-color: #888888
+
+        &_line_2
+            margin-top: 15px
+            @include text($sieze: 15px, $weight: 300)
+            color: #888888
